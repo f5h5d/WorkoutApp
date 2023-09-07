@@ -1,38 +1,107 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+.form-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.form-box {
+  width: 90%;
+  max-width: 450px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 50px 60px 70px;
   text-align: center;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-box h1 {
+  font-size: 30px;
+  margin-bottom: 60px;
+  color: black;
+  position: relative;
+  font-weight: bold;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form-box h1::after {
+  content: '';
+  width: 30px;
+  height: 4px;
+  border-radius: 3px;
+  background: black;
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.input-field {
+  background-color: #eaeaea;
+  margin: 15px 0;
+  border-radius: 3px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  max-height: 65px;
+  transition: max-height 0.5s;
+  overflow: hidden;
+  width: 100%;
+}
+
+input {
+  width: 100% !important;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  padding: 18px 15px;
+}
+
+.input-field .icons {
+  margin-left: 15px;
+  
+}
+
+.btn-field {
+  width: 100%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-field button {
+  flex-basis: 48%;
+  background: #FF6B81;
+  color: #fff;
+  height: 40px;
+  border-radius: 20px;
+  width: 120px;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  transition: background 1s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.input-group {
+  height: 280px;
+}
+
+.btn-field button.disable {
+  background: #eaeaea;
+  color: #555;
+}
+
+
+@media (max-height: 800px) {
+  .form-container {
+    margin-top: 50px !important;
   }
 }
