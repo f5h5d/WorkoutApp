@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
@@ -10,6 +10,12 @@ const Login = () => {
   const navigate = useNavigate();
   const { setAuthState, authState } = useContext(AuthContext);
   const [errMessage, setErrMessage] = useState("");
+
+  useEffect(() => {
+    if (authState.loggedIn === true) {
+      navigate("/workouts")
+    }
+  })
 
   const onSubmit = async (e) => {
     const form = e.target.parentElement.parentElement;
@@ -30,16 +36,24 @@ const Login = () => {
           setErrMessage(response.data);
           return;
         }
-        navigate("/")
+        const { data } = response;
+        setAuthState({
+          email: data.email,
+          name: data.name,
+          id: data.id,
+          loggedIn: true,
+        });
+
+        navigate("/workouts")
       });
   };
 
   return (
     <Container>
       <Header>
-        <h1>
+        <h1 className="header">
           Log
-          <span>
+          <span className="header-span">
             in<div className="underline"> </div>
           </span>
         </h1>
@@ -59,7 +73,7 @@ const Login = () => {
 
             <div className="btn-field mt-3">
               <button type="button" id="signupBtn" onClick={onSubmit}>
-                Sign Up
+                Log In
               </button>
             </div>
             <div className="error-div mt-3">

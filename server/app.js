@@ -15,6 +15,12 @@ app.use(cookieParser());
 const usersRouter = require("./routes/Users");
 app.use("/users", usersRouter)
 
+const excercisesRouter = require("./routes/Excercises");
+app.use("/excercises", excercisesRouter)
+
+const workoutRouter = require("./routes/Workouts");
+app.use("/workouts", workoutRouter)
+
 
 
 db.sequelize.sync().then(() => {

@@ -1,0 +1,119 @@
+.add-excercise-list {
+  list-style: none;
+  padding: 15px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5em;
+  background: #eceff1;
+  border-radius: 4px;
+}
+
+.add-excercise-modal-body {
+  height: 342px;
+  overflow-y: scroll;
+}
+
+.add-excercise-image-icon {
+  height: 50px;
+  background: none;
+  border-radius: 50%;
+}
+
+.plus-icon {
+  margin-left: 15px;
+}
+
+.ghost-container {
+  height: 250px;
+  width: 250px;
+  background: #e4ebf0;
+  margin: auto;
+  border-radius: 50%;
+}
+
+.ghost-container {
+  color: white !important;
+}
+
+
+.update-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.update-button {
+  outline: none;
+  border: none;
+  padding: 5px 15px;
+  background: #f8c16f;
+  color: white;
+  border-radius: 4px;
+  margin-right: 5vw;
+}
+
+.update {
+  background: #ffa726;
+}
+
+.delete-workout-button {
+  outline: none;
+  border: none;
+  padding: 5px 15px;
+  background: #D0312D;
+  color: white;
+  border-radius: 4px;
+  margin-left: 5vw;
+}
+
+
+
+
+
+
+
+/* WORKOUT INFO */
+
+.workout-info-modal-body {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+.workout-info-excercises-list {
+  list-style-type: none;
+  min-height: 200px;
+  vertical-align: bottom;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 0px;
+}
+
+.workout-info-modal-header {
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+}
+
+.modal-title {
+  font-size: 2rem !important;
+  font-weight: bold !important;
+}
+
+.workout-info-excercises {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 10px 10px;
+  margin: 10px 0px;
+  vertical-align: middle;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.workout-info-excercise-image {
+  height: 40px;
+}
+
+.workout-info-excercise-name {
+  margin-left: 20px;
+}

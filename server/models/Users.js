@@ -12,14 +12,19 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    currentWorkoutId: {
+      type: DataTypes.CHAR,
+      allowNull: false,
+    }
   });
-  // Users.associate = (models) => {
-  //   Users.hasMany(models.Likes, {
-  //     onDelete: "cascade",
-  //   });
-  //   Users.hasMany(models.Posts, {
-  //     onDelete: "cascade",
-  //   });
-  // };
+  Users.associate = (models) => {
+    Users.hasMany(models.Workouts, {
+      onDelete: "cascade",
+    });
+
+    Users.hasMany(models.PastWorkouts, {
+      onDelete: "cascade",
+    });
+  };
   return Users;
 };

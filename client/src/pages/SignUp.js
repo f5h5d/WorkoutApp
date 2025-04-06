@@ -1,14 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { AuthContext } from "../helper/AuthContext";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const emailCheck =
     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   const passwordCheck = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
+  const { setAuthState, authState } = useContext(AuthContext);
   const [errMessage, setErrMessage] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (authState.loggedIn === true) {
+      navigate("/workouts")
+    }
+  })
 
   const onSubmit = async (e) => {
     const form = e.target.parentElement.parentElement;
@@ -46,9 +56,9 @@ const SignUp = () => {
   return (
     <Container>
       <Header>
-        <h1>
+        <h1 className="header">
           Sign{" "}
-          <span>
+          <span className="header-span">
             Up<div className="underline"> </div>
           </span>
         </h1>
@@ -86,7 +96,7 @@ const SignUp = () => {
 };
 
 const Container = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   background: #eceff1;
 `;
